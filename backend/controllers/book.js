@@ -37,11 +37,11 @@ bookRouter.delete("/:id", async (request, response) => {
 bookRouter.put("/:id", async (request, response) => {
   try {
     const id = request.params.id;
-    const { title, author, url, likes } = request.body;
+    const { title, author, pages, publishedAt } = request.body;
 
     const newBook = await Book.findByIdAndUpdate(
       id,
-      { title, author, url, likes },
+      { title, author, pages, publishedAt },
       { new: true }
     );
 
